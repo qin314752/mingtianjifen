@@ -1,0 +1,27 @@
+<script type="text/javascript" src="__PAGE__/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="__PAGE__/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="__PAGE__/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="__PAGE__/static/h-ui.admin/js/H-ui.admin.js"></script> 
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PAGE__/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
+
+<script>
+	$(document).ready(function () {
+        $('._header').on('click','li',function () {
+            var id=$(this).attr("id");
+            $(".admin_h-ui_header_top_color").find('a').css('color','#fff')
+            $('.cl .admin_h-ui_header_top_color').removeClass('admin_h-ui_header_top_color');
+            $("#"+id).addClass('admin_h-ui_header_top_color');
+            $(".admin_h-ui_header_top_color").find('a').css('color','#333');
+            id=id.split('band')[1];
+            $('.asideBox').hide();
+            var aside='#'+'aside'+id;
+            $(aside).show();
+            $($(aside).find('dl')[0]).find('dt').addClass('selected');
+            $($(aside).find('dl')[0]).find('dd').show();
+            var href=$($($(aside).find('dl')[0]).find('li')[0]).find('a').click();
+        });
+    })
+
+</script>
